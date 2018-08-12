@@ -31,9 +31,9 @@
                     if (xhr.status == 200) {
                         let result = JSON.parse(xhr.responseText);
                         console.log(result);
-                        deleteCookie("username");
-                        deleteCookie("password");
-                        deleteCookie("ID");
+                        //deleteCookie("username");
+                        //deleteCookie("password");
+                        //deleteCookie("ID");
                         setCookie("username", result.Username);
                         setCookie("password", result.Password);
                         setCookie("ID", result.Id);
