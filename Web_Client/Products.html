@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href='css/header.css' rel='stylesheet' type='text/css'>
+    <link href='css/footer.css' rel='stylesheet' type='text/css'>
+    <link href='css/menu.css' rel='stylesheet' type='text/css'>
+
+    <link href='css/style_reg.css' rel='stylesheet' type='text/css'>
+
+    <script>
+        function getClient() {
+            if (getCookie("username") != "" && getCookie("password") != "" && getCookie("ID") != "") {
+                let url = "http://localhost:50529/Service1.svc/GetClientByUP?";
+                url += "userName=" + getCookie("username") + "&userPassword=" + getCookie("password");
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.send(null);
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            let result = JSON.parse(xhr.responseText);
+                            console.log(result);
+
+                            document.getElementById("user").textContent = result.Username;
+                        }
+                        if (xhr.status == 400) {
+                            alert("Invalid user or password");
+                        }
+                    }
+                }
+            } else {
+                alert("Please reLogin!");
+            }
+        }
+
+        function getAllProductsByCategory() {
+
+            if (getCookie("category") != "") {
+                let url = "http://localhost:50529/Service1.svc/GetProductsByCatecory?";
+                url += "categoryId=" + getCookie("category");
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.send(null);
+                console.log(url);
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            let result = JSON.parse(xhr.responseText).GetProductsByCatecoryResult;
+                            console.log(result);
+
+                            for (var i in result) {
+                                var v = result[i].Name;
+                                console.log(i + ' ' + v);
+
+                                let url2 = "http://localhost:50529/Service1.svc/GetProductImagesByProduct?";
+                                url2 += "productId=" + result[i].Id;
+                                let xhr2 = new XMLHttpRequest();
+                                xhr2.open("GET", url2, false);
+                                xhr2.send(null);
+                                let result2;
+
+                                //xhr2.onreadystatechange = function() {
+                                    //if (xhr2.readyState == 4) {
+                                        if (xhr2.status == 200) {
+                                            result2 = JSON.parse(xhr2.responseText).GetProductImagesByProductResult;
+                                            console.log(result2);
+
+
+                                        }
+                                        if (xhr2.status == 400) {
+
+                                            alert("Invalid request");
+                                        }
+                                    //}
+                                //}
+
+                                let resContainer = document.getElementById("resultContainer");
+                                resContainer.style.display = "block";
+                                let rowWithResult = "";
+                                rowWithResult += (`<tr bgcolor="white" onMouseOver="this.style.backgroundColor='#feb386'; setProductID(${result[i].Id})" onMouseOut="this.style.backgroundColor='white'"><td><h4 style="margin-right: 40px">[ ${result[i].Id} ]</h4></td><td width="400"><h4>${result[i].Name}</h4><br><img src="data:image/jpg;base64,${result2[0].Image}" width="300" height="300"><br><button onclick="goToDetail()">Detail</button></td><td  width="100"><h4 style="margin-left: 50px">${result[i].Price} UAH</h4></td><td><button onclick="addToBasket()" style="margin-left: 10px">Buy</button></td></tr><hr>`);
+                                resContainer.innerHTML += rowWithResult;
+                            }
+                        }
+                        if (xhr.status == 400) {
+
+                            alert("Invalid request");
+                        }
+                    }
+                }
+            } else {
+                alert("Select category!");
+            }
+        }
+
+         //<img src="data:image/jpg;base64,${result2[1].Image}">
+        function addToBasket() {
+            //setProductID(idProduct);
+
+            if (getCookie("order") != "" && getCookie("product") != "") {
+                let url = "http://localhost:50529/Service1.svc/AddToBasket?";
+                url += "orderId=" + getCookie("order") + "&productId=" + getCookie("product");
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.send(null);
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            let result = JSON.parse(xhr.responseText);
+                            console.log(result);
+                            alert("Product added to the basket.");
+                        }
+                        if (xhr.status == 400) {
+
+                            alert("An error occurred.");
+                        }
+                    }
+                }
+            } else {
+                alert("Pleace reLogin!");
+            }
+        }
+
+        function setCategory(idCategory) {
+            setCookie("category", idCategory);
+            document.location.href = "Products.html";
+        }
+
+        function goToDetail() {
+            document.location.href = "ProductDetail.html";
+        }
+
+        function setProduct(idProduct) {
+            setCookie("product", idProduct);
+        }
+
+        function setProductID(idProduct) {
+            setCookie("product", idProduct);
+            console.log(idProduct);
+        }
+
+        function setCookie(name, value) {
+            document.cookie = name + "=" + value;
+        }
+
+        function getCookie(name) {
+            var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+            if (r) return r[2];
+            else return "";
+        }
+
+        function deleteCookie(name) {
+            var date = new Date(); // Берём текущую дату
+            date.setTime(date.getTime() - 1); // Возвращаемся в "прошлое"
+            document.cookie = name += "=; expires=" + date.toGMTString(); // Устанавливаем cookie пустое значение и срок действия до прошедшего уже времени
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <br>
+        <h1>САНТЕХНІКА</h1>
+        <h3>Інтернет-магазин сантехніки</h3>
+    </div>
+    <div style="background: #98b8c7">
+        <ul class="menu-main">
+            <li><a href="Index.html" class="current">Home</a>
+            </li>
+            <li><a href="About.html">About</a>
+            </li>
+            <li><a href="Contacts.html">Contact</a>
+            </li>
+        </ul>
+        <form class="field">
+            <a href="Login.html">Enter</a>
+            <a>|</a>
+            <a href="UpdateProfile.html">Profile</a>
+            <a>|</a>
+            <a href="Registration.html">Registration</a>
+            <a>|</a>
+            <a href="Order.html">Basket</a>
+            <a> : </a>
+            <label id="user" style="margin: 0px 10px 0px 0px; text-align=right"><strong>Noname</strong>
+            </label>
+        </form>
+    </div>
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <script>
+        getClient();
+    </script>
+    <div class="outer">
+        <div class="inner" style="margin-bottom: 80px">
+            <h2 style="text-align: center">Products</h2>
+            <table id="resultContainer" style="display: none">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        getAllProductsByCategory();
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="footer">
+        &copy; Рома Лагоднюк / (ШАГ) / серпень 2018
+    </div>
+</body>
+
+</html>

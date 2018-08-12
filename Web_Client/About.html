@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href='css/header.css' rel='stylesheet' type='text/css'>
+    <link href='css/footer.css' rel='stylesheet' type='text/css'>
+    <link href='css/menu.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="header">
+        <br>
+        <h1>САНТЕХНІКА</h1>
+        <h3>Інтернет-магазин сантехніки</h3>
+    </div>
+    <div style="background: #98b8c7">
+        <ul class="menu-main">
+            <li><a href="Index.html" class="current">Home</a>
+            </li>
+            <li><a href="About.html">About</a>
+            </li>
+            <li><a href="Contacts.html">Contact</a>
+            </li>
+        </ul>
+        <form class="field">
+            <a href="Login.html">Enter</a>
+            <a>|</a>
+            <a href="UpdateProfile.html">Profile</a>
+            <a>|</a>
+            <a href="Registration.html">Registration</a>
+            <a>|</a>
+            <a href="Order.html">Basket</a>
+            <a> : </a>
+            <label id="user" style="margin: 0px 10px 0px 0px; text-align=right"><strong>Noname</strong>
+            </label>
+        </form>
+    </div>
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <h4>Description of the application</h4>
+    <h5>Вatabase schema</h5>
+    <img src="img/ShemaBD.png">
+    <p>Виконано все згідно завдання.</p>
+    <p>Запити серверної частини:</p>
+    <p>/AddClientMessage GET Служба в http://localhost:50529/Service1.svc/AddClientMessage?author={AUTHOR}&text={TEXT}&email={EMAIL}&phone={PHONE} /AddNewClient GET Служба в http://localhost:50529/Service1.svc/AddNewClient?username={USERNAME}&password={PASSWORD}&salt={SALT}&status={STATUS}&sale={SALE}&birthday={BIRTHDAY}&email={EMAIL}&firstname={FIRSTNAME}&lastname={LASTNAME}&role={ROLE} /AddToBasket GET Служба в http://localhost:50529/Service1.svc/AddToBasket?orderId={ORDERID}&productId={PRODUCTID} /CreateNewOrder GET Служба в http://localhost:50529/Service1.svc/CreateNewOrder?clientId={CLIENTID}&paymentId={PAYMENTID}&deliveryId={DELIVERYID}&comment={COMMENT} /GetAllCategorys GET Служба в http://localhost:50529/Service1.svc/GetAllCategorys /GetAllDelivery GET Служба в http://localhost:50529/Service1.svc/GetAllDelivery /GetAllPayment GET Служба в http://localhost:50529/Service1.svc/GetAllPayment /GetAllProducts GET Служба в http://localhost:50529/Service1.svc/GetAllProducts /GetClientByUP GET Служба в http://localhost:50529/Service1.svc/GetClientByUP?userName={USER}&userPassword={PASSWORD} /GetClientByUsername GET Служба в http://localhost:50529/Service1.svc/GetClientByUsername?userName={USER} /GetManufacturerById GET Служба в http://localhost:50529/Service1.svc/GetManufacturerById?id={ID} /GetOrderById GET Служба в http://localhost:50529/Service1.svc/GetOrderById?Id={ID} /GetOrderProduct GET Служба в http://localhost:50529/Service1.svc/GetOrderProduct?orderId={ORDERID} /GetProductById GET Служба в http://localhost:50529/Service1.svc/GetProductById?id={ID} /GetProductImagesByProduct GET Служба в http://localhost:50529/Service1.svc/GetProductImagesByProduct?productId={PRODUCTID} /GetProductsByCatecory GET Служба в http://localhost:50529/Service1.svc/GetProductsByCatecory?categoryId={CATEGORYID} /GetProductsByCategoryAndSort GET Служба в http://localhost:50529/Service1.svc/GetProductsByCategoryAndSort?categoryId={CATEGORYID}&sorttype={SORTTYPE} /PurchaseAmount GET Служба в http://localhost:50529/Service1.svc/PurchaseAmount?id={ID} /UpdateClient GET Служба в http://localhost:50529/Service1.svc/UpdateClient?id={ID}&username={USERNAME}&password={PASSWORD}&birthday={BIRTHDAY}&email={EMAIL}&firstname={FIRSTNAME}&lastname={LASTNAME} /UpdateOrder GET Служба в http://localhost:50529/Service1.svc/UpdateOrder?id={ID}&clientId={CLIENTID}&paymentId={PAYMENTID}&deliveryId={DELIVERYID}&comment={COMMENT}</p>
+    <br>
+    <p>Всього - 20 запитів GET</p>
+    <br>
+    <p>БД розміщена на MSAzure</p>
+    <br>
+    <p>До клієнтської частини входить 9 - сторінок:</p>
+    <p>-About
+        <br>-Contacts
+        <br>-Home(index)
+        <br>-Login
+        <br>-Registration
+        <br>-Update Profile
+        <br>-Products
+        <br>-Product Details
+        <br>-Order</p>
+    <p>Переходи між сторінками, додавання до кошика, розрахунок загальної вартості та ін...</p>
+    <p style="margin-bottom: 80px" >Також деякий функціонал, наприклад сортування товарів, присутній на сервері та не реалізований на клієнті.</p>
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="footer">
+        &copy; Рома Лагоднюк / (ШАГ) / серпень 2018
+    </div>
+</body>
+
+</html>

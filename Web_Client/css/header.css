@@ -1,0 +1,20 @@
+.header{
+  width: 100%;
+  height: 250px;
+  background-color: #25B33f;
+
+  background-image: url(img/head.jpg);
+    background-size: cover;
+}
+
+h1{
+  color: coral;
+  font: 40px Georgia;
+  margin-left: 41%;
+}
+h3{
+  width: 200px;
+  color: #ffee00;
+  font-style: italic;
+  margin: 70px 0 0 30px;
+}

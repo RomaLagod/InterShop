@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href='css/header.css' rel='stylesheet' type='text/css'>
+    <link href='css/footer.css' rel='stylesheet' type='text/css'>
+    <link href='css/menu.css' rel='stylesheet' type='text/css'>
+
+    <link href='css/style_reg.css' rel='stylesheet' type='text/css'>
+
+    <script>
+        function getClient() {
+            if (getCookie("username") != "" && getCookie("password") != "" && getCookie("ID") != "") {
+                let url = "http://localhost:50529/Service1.svc/GetClientByUP?";
+                url += "userName=" + getCookie("username") + "&userPassword=" + getCookie("password");
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.send(null);
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            let result = JSON.parse(xhr.responseText);
+                            console.log(result);
+
+                            document.getElementById("user").textContent = result.Username;
+                        }
+                        if (xhr.status == 400) {
+
+                            alert("Invalid user or password");
+                        }
+                    }
+                }
+            } else {
+                alert("Please reLogin!");
+            }
+        }
+
+        function getAllCategories() {
+            let url = "http://localhost:50529/Service1.svc/GetAllCategorys";
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.send(null);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        let result = JSON.parse(xhr.responseText).GetAllCategorysResult;
+                        console.log(result);
+                        for (var i in result) {
+                            var v = result[i].Desctiption;
+                            console.log(i + ' ' + v);
+
+                            let resContainer = document.getElementById("resultContainer");
+                            resContainer.style.display = "block";
+                            let rowWithResult = "";
+                            rowWithResult += (`<tr bgcolor="white" onMouseOver="this.style.backgroundColor='#feb386';" onMouseOut="this.style.backgroundColor='white'" onclick="setCategory(this.rowIndex)"><td><h4 style="margin-right: 40px">[ ${result[i].Id} ]</h4></td><td><img src="data:image/jpg;base64,${result[i].Image}"></td><td  width="350"><h4 style="margin-left: 50px">${result[i].Name}</h4><br><p>${result[i].Desctiption}</p></td></tr><hr>`);
+                            resContainer.innerHTML += rowWithResult;
+                        }
+                    }
+                    if (xhr.status == 400) {
+
+                        alert("Invalid request");
+                    }
+                }
+            }
+        }        
+
+        function setCategory(idCategory) {
+            setCookie("category", idCategory);
+            document.location.href = "Products.html";
+        }
+
+        function setCookie(name, value) {
+            document.cookie = name + "=" + value;
+        }
+
+        function getCookie(name) {
+            var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+            if (r) return r[2];
+            else return "";
+        }
+
+        function deleteCookie(name) {
+            var date = new Date(); // Берём текущую дату
+            date.setTime(date.getTime() - 1); // Возвращаемся в "прошлое"
+            document.cookie = name += "=; expires=" + date.toGMTString(); // Устанавливаем cookie пустое значение и срок действия до прошедшего уже времени
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <br>
+        <h1>САНТЕХНІКА</h1>
+        <h3>Інтернет-магазин сантехніки</h3>
+    </div>
+    <div style="background: #98b8c7">
+        <ul class="menu-main">
+            <li><a href="Index.html" class="current">Home</a>
+            </li>
+            <li><a href="About.html">About</a>
+            </li>
+            <li><a href="Contacts.html">Contact</a>
+            </li>
+        </ul>
+        <form class="field">
+            <a href="Login.html">Enter</a>
+            <a>|</a>
+            <a href="UpdateProfile.html">Profile</a>
+            <a>|</a>
+            <a href="Registration.html">Registration</a>
+            <a>|</a>
+            <a href="Order.html">Basket</a>
+            <a> : </a>
+            <label id="user" style="margin: 0px 10px 0px 0px; text-align=right"><strong>Noname</strong>
+            </label>
+        </form>
+    </div>
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <script>
+        getClient();
+    </script>
+    <div class="outer">
+        <div class="inner" style="margin-bottom: 80px">
+            <h2 style="text-align: center">Categories</h2>
+            <table id="resultContainer" style="display: none">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        getAllCategories();
+    </script>
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="footer">
+        &copy; Рома Лагоднюк / (ШАГ) / серпень 2018
+    </div>
+</body>
+
+</html>

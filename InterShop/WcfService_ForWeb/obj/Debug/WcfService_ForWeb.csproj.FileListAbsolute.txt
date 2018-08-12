@@ -1,0 +1,16 @@
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\WcfService_ForWeb.dll.config
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\WcfService_ForWeb.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\WcfService_ForWeb.pdb
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\BLL.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\DAL.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\EntityFramework.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\EntityFramework.SqlServer.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\BLL.pdb
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\DAL.pdb
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\DAL.dll.config
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\EntityFramework.xml
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\bin\EntityFramework.SqlServer.xml
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\obj\Debug\WcfService_ForWeb.csprojResolveAssemblyReference.cache
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\obj\Debug\WcfService_ForWeb.csproj.CoreCompileInputs.cache
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\obj\Debug\WcfService_ForWeb.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\WcfService_ForWeb\obj\Debug\WcfService_ForWeb.pdb

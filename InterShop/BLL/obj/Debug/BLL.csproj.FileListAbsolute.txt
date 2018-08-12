@@ -1,0 +1,11 @@
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\bin\Debug\BLL.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\bin\Debug\BLL.pdb
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\bin\Debug\DAL.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\bin\Debug\EntityFramework.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\bin\Debug\DAL.pdb
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\bin\Debug\DAL.dll.config
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\bin\Debug\EntityFramework.xml
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\obj\Debug\BLL.dll
+E:\Work_Table\ШАГ\NETworkingC#\HomeWork\Kyrsak_InternetMagazin\InterShop\BLL\obj\Debug\BLL.pdb
